@@ -41,7 +41,14 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
     implementation(libs.material)
+
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
+
+    // MediaPipe (main)
+    implementation("com.google.mediapipe:tasks-core:latest.release")
+    // MediaPipe (tache reconnaissance vision)
+    implementation("com.google.mediapipe:tasks-vision:latest.release")
 }
