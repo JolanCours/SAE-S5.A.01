@@ -1,4 +1,4 @@
-package sae.sport.app
+package sae.app.sport
 
 import org.junit.Test
 
