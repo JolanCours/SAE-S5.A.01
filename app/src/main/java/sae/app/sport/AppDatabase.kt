@@ -1,0 +1,34 @@
+package com.example.myapplication
+
+import android.content.Context
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
+
+/**
+ * Base de données principale Room en Kotlin.
+ */
+@Database(entities = [Badge::class], version = 5, exportSchema = false)
+abstract class AppDatabase : RoomDatabase() {
+    
+    abstract fun badgeDao(): BadgeDao
+
+    companion object {
+        @Volatile
+        private var INSTANCE: AppDatabase? = null
+
+        fun getDatabase(context: Context): AppDatabase {
+            return INSTANCE ?: synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDatabase::class.java,
+                    "sport_gamification_db"
+                )
+                .fallbackToDestructiveMigration()
+                .build()
+                INSTANCE = instance
+                instance
+            }
+        }
+    }
+}
