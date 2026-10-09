@@ -20,7 +20,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-
+import sae.app.sport.MainActivity
+import sae.app.sport.Objectif.ObjectifListe
 data class HomeUiState(
     val steps: Int = 0,
     val exercisesDone: Int = 0,
@@ -33,7 +34,8 @@ fun HomeScreen(
     //Action des boutons
     state: HomeUiState,
     onStartExercise: () -> Unit,
-    onOpenSettings: () -> Unit
+    onOpenSettings: () -> Unit,
+    onOpenObjectives: () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -63,6 +65,13 @@ fun HomeScreen(
         Spacer(Modifier.weight(1f))
 
         Button(
+            onClick = onOpenObjectives,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Mes objectifs")
+        }
+
+        Button(
             onClick = onStartExercise,
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -87,6 +96,7 @@ fun HomeScreenPreview() {
     HomeScreen(
         state = HomeUiState(steps = 4200, exercisesDone = 3, avgScore = 82, streakDays = 2),
         onStartExercise = {},
-        onOpenSettings = {}
+        onOpenSettings = {},
+        onOpenObjectives = {}
     )
 }
