@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SAESport</string>
+    <string name="title_accueil">Accueil SAÉ Sport</string>
+    <string name="btn_voir_bilan">Voir le bilan de la séance</string>
+    <string name="recap_title">Récapitulatif de votre séance</string>
+    <string name="recap_date">Date : &#8230;</string>
+    <string name="desc_icone_horloge">Icône horloge</string>
+    <string name="btn_retour_accueil">Retour à l\'accueil</string>
+    <string name="btn_refaire_seance">Refaire la séance</string>
 </resources>
