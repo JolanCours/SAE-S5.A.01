@@ -1,0 +1,10 @@
+package sae.app.sport.model
+
+import java.util.UUID
+
+data class Exercise(
+    val id: String = UUID.randomUUID().toString(),
+    val name: String,
+    val sets: Int,
+    val reps: Int
+)
