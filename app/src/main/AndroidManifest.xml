@@ -11,24 +11,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SAESport">
+
+        <!-- Écran de démarrage : planning + paramètres -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.SAESport">
-        </activity>
-        <activity
-            android:name=".BadgesActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.SAESport"
-            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Écran des badges : ouvert depuis l'app, plus au démarrage -->
+        <activity
+            android:name=".BadgesActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.SAESport"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
