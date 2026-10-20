@@ -15,6 +15,8 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.ui.Modifier
+import sae.app.sport.ui.navigation.AppNavigation
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -44,6 +46,12 @@ class MainActivity : ComponentActivity() {
                 var gamificationType by remember { mutableStateOf(settings.gamificationType) }
 
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    androidx.compose.foundation.layout.Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(innerPadding)
+                    ) {
+                        AppNavigation()
                     Box(modifier = Modifier.padding(innerPadding)) {
                         if (showSettings) {
                             // Le bouton retour du téléphone ferme les paramètres
