@@ -15,7 +15,8 @@ import sae.app.sport.model.DailySession
 import sae.app.sport.model.Exercise
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.input.KeyboardType
 @Composable
 fun DayDetailsView(
     date: LocalDate,
@@ -111,6 +112,11 @@ fun AddExerciseDialog(
     var sets by remember { mutableStateOf("") }
     var reps by remember { mutableStateOf("") }
 
+    // Valide seulement si le nom est rempli et si séries/répétitions sont > 0
+    val setsInt = sets.toIntOrNull() ?: 0
+    val repsInt = reps.toIntOrNull() ?: 0
+    val isValid = name.isNotBlank() && setsInt > 0 && repsInt > 0
+
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text("Nouvel exercice") },
@@ -124,27 +130,26 @@ fun AddExerciseDialog(
                 )
                 OutlinedTextField(
                     value = sets,
-                    onValueChange = { sets = it },
+                    // On garde uniquement les chiffres, max 3 caractères
+                    onValueChange = { new -> sets = new.filter { it.isDigit() }.take(3) },
                     label = { Text("Nombre de séries") },
-                    singleLine = true
+                    singleLine = true,
+                    // Affiche le clavier numérique
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                 )
                 OutlinedTextField(
                     value = reps,
-                    onValueChange = { reps = it },
+                    onValueChange = { new -> reps = new.filter { it.isDigit() }.take(3) },
                     label = { Text("Nombre de répétitions") },
-                    singleLine = true
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                 )
             }
         },
         confirmButton = {
             TextButton(
-                onClick = {
-                    val setsInt = sets.toIntOrNull() ?: 0
-                    val repsInt = reps.toIntOrNull() ?: 0
-                    if (name.isNotBlank() && setsInt > 0 && repsInt > 0) {
-                        onConfirm(name, setsInt, repsInt)
-                    }
-                }
+                onClick = { onConfirm(name, setsInt, repsInt) },
+                enabled = isValid // bouton grisé tant que tout n'est pas valide
             ) {
                 Text("Ajouter")
             }
@@ -156,3 +161,4 @@ fun AddExerciseDialog(
         }
     )
 }
+
