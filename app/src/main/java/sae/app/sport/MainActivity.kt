@@ -1,5 +1,6 @@
 package sae.app.sport
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
@@ -15,14 +16,14 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.ui.Modifier
-import sae.app.sport.ui.navigation.AppNavigation
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
 import sae.app.sport.data.SettingsRepository
 import sae.app.sport.ui.schedule.ScheduleScreen
 import sae.app.sport.ui.settings.SettingsScreen
@@ -46,12 +47,6 @@ class MainActivity : ComponentActivity() {
                 var gamificationType by remember { mutableStateOf(settings.gamificationType) }
 
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    androidx.compose.foundation.layout.Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(innerPadding)
-                    ) {
-                        AppNavigation()
                     Box(modifier = Modifier.padding(innerPadding)) {
                         if (showSettings) {
                             // Le bouton retour du téléphone ferme les paramètres
@@ -79,6 +74,11 @@ class MainActivity : ComponentActivity() {
                                             imageVector = Icons.Default.Settings,
                                             contentDescription = "Paramètres"
                                         )
+                                    }
+                                    TextButton(onClick = {
+                                        startActivity(Intent(this@MainActivity, TrainingActivity::class.java))
+                                    }) {
+                                        Text("Exercices")
                                     }
                                 }
                                 // Ton écran existant, inchangé
