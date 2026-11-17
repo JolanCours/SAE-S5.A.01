@@ -44,7 +44,7 @@ import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
-import sae.app.sport.model.Exercise
+import sae.app.sport.model.PoseExercise
 import sae.app.sport.model.StepType
 import sae.app.sport.training.WorkoutEngine
 import sae.app.sport.ui.components.DuoButton
@@ -70,7 +70,7 @@ import kotlin.random.Random
 
 @Composable
 fun ReportScreen(
-    exercise: Exercise,
+    exercise: PoseExercise,
     report: WorkoutEngine.Report,
     onContinue: () -> Unit,
     onRetry: () -> Unit
@@ -255,7 +255,7 @@ private fun androidx.compose.ui.graphics.drawscope.DrawScope.drawStar(fill: Colo
 }
 
 @Composable
-private fun StepBreakdown(exercise: Exercise, report: WorkoutEngine.Report) {
+private fun StepBreakdown(exercise: PoseExercise, report: WorkoutEngine.Report) {
     val c = AppTheme.colors
     val groups = report.results.groupBy { it.stepIndex }.toSortedMap()
     if (groups.isEmpty()) return

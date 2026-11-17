@@ -45,7 +45,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import sae.app.sport.model.Exercise
+import sae.app.sport.model.PoseExercise
 import sae.app.sport.model.StepType
 import sae.app.sport.ui.components.AppIcon
 import sae.app.sport.ui.components.DuoButton
@@ -69,9 +69,9 @@ private sealed interface CaptureMode {
 
 @Composable
 fun EditorScreen(
-    initial: Exercise,
+    initial: PoseExercise,
     fromBuiltIn: Boolean,
-    onSave: (Exercise) -> Unit,
+    onSave: (PoseExercise) -> Unit,
     onCancel: () -> Unit
 ) {
     val state = remember(initial.id) { EditorState(initial, fromBuiltIn) }

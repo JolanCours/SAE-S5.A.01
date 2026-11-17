@@ -31,7 +31,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import sae.app.sport.model.Exercise
+import sae.app.sport.model.PoseExercise
 import sae.app.sport.model.formatDuration
 import sae.app.sport.ui.components.AppIcon
 import sae.app.sport.ui.components.DuoCard
@@ -46,9 +46,9 @@ import sae.app.sport.ui.theme.cardColors
 
 @Composable
 fun HomeScreen(
-    builtIns: List<Exercise>,
-    custom: List<Exercise>,
-    onOpen: (Exercise) -> Unit,
+    builtIns: List<PoseExercise>,
+    custom: List<PoseExercise>,
+    onOpen: (PoseExercise) -> Unit,
     onCreate: () -> Unit
 ) {
     val c = AppTheme.colors
@@ -145,7 +145,7 @@ private fun CreateCard(onCreate: () -> Unit) {
 }
 
 @Composable
-fun ExerciseCard(exercise: Exercise, onClick: () -> Unit, modifier: Modifier = Modifier) {
+fun ExerciseCard(exercise: PoseExercise, onClick: () -> Unit, modifier: Modifier = Modifier) {
     val (face, shadow) = cardColors(exercise.colorIndex)
     val firstPose = exercise.steps.firstOrNull { it.pose != null && it.isPose }?.let {
         exercise.steps.filter { s -> s.pose != null && s.isPose }.getOrNull(1)?.pose ?: it.pose

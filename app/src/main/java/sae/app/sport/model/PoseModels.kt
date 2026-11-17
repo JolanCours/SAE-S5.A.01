@@ -58,7 +58,7 @@ data class ExerciseStep(
     }
 }
 
-data class Exercise(
+data class PoseExercise(
     val id: String = UUID.randomUUID().toString(),
     val name: String = "",
     val description: String = "",
@@ -78,7 +78,7 @@ data class Exercise(
     fun estimatedDurationSec(): Int =
         (steps.sumOf { it.estimatedSec().toDouble() } * safeRounds).toInt()
 
-    fun sanitized(): Exercise = copy(
+    fun sanitized(): PoseExercise = copy(
         name = name ?: "",
         description = description ?: "",
         emoji = emoji ?: "💪",

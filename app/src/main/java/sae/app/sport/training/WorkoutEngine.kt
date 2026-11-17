@@ -1,13 +1,13 @@
 package sae.app.sport.training
 
-import sae.app.sport.model.Exercise
+import sae.app.sport.model.PoseExercise
 import sae.app.sport.model.ExerciseStep
 import sae.app.sport.model.StepType
 import kotlin.math.exp
 import kotlin.math.max
 
 class WorkoutEngine(
-    val exercise: Exercise,
+    val exercise: PoseExercise,
     private val getReadyMs: Long = 3000L,
     private val threshold: Float = exercise.safeDifficulty.threshold
 ) {

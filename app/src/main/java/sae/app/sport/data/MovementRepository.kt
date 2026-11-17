@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import sae.app.sport.model.Exercise
+import sae.app.sport.model.PoseExercise
 import sae.app.sport.model.ExerciseStep
 import sae.app.sport.model.MovementSequence
 import sae.app.sport.model.StepType
@@ -19,16 +19,16 @@ class MovementRepository(context: Context) {
         const val KEY_EXERCISES = "key_exercises_v2"
     }
 
-    fun getAllExercises(): List<Exercise> = BuiltInExercises.all + getCustomExercises()
+    fun getAllExercises(): List<PoseExercise> = BuiltInExercises.all + getCustomExercises()
 
-    fun getExercise(id: String): Exercise? = getAllExercises().firstOrNull { it.id == id }
+    fun getExercise(id: String): PoseExercise? = getAllExercises().firstOrNull { it.id == id }
 
-    fun getCustomExercises(): List<Exercise> {
+    fun getCustomExercises(): List<PoseExercise> {
         migrateLegacyIfNeeded()
         val json = prefs.getString(KEY_EXERCISES, null) ?: return emptyList()
-        val type = object : TypeToken<List<Exercise>>() {}.type
+        val type = object : TypeToken<List<PoseExercise>>() {}.type
         return try {
-            val list: List<Exercise?> = gson.fromJson(json, type) ?: emptyList()
+            val list: List<PoseExercise?> = gson.fromJson(json, type) ?: emptyList()
             list.filterNotNull()
                 .map { it.sanitized().copy(builtIn = false) }
                 .sortedByDescending { it.updatedAt }
@@ -37,7 +37,7 @@ class MovementRepository(context: Context) {
         }
     }
 
-    fun saveExercise(exercise: Exercise) {
+    fun saveExercise(exercise: PoseExercise) {
         val list = getCustomExercises().toMutableList()
         list.removeAll { it.id == exercise.id }
         list.add(exercise.copy(builtIn = false, updatedAt = System.currentTimeMillis()))
@@ -50,7 +50,7 @@ class MovementRepository(context: Context) {
         write(list)
     }
 
-    private fun write(list: List<Exercise>) {
+    private fun write(list: List<PoseExercise>) {
         prefs.edit().putString(KEY_EXERCISES, gson.toJson(list)).apply()
     }
 
@@ -64,7 +64,7 @@ class MovementRepository(context: Context) {
             emptyList()
         }
         val converted = legacy.mapIndexed { i, seq ->
-            Exercise(
+            PoseExercise(
                 id = seq.id,
                 name = seq.name.ifBlank { "Mouvement ${i + 1}" },
                 emoji = "🤸",

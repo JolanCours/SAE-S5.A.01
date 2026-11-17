@@ -6,14 +6,14 @@ import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import sae.app.sport.model.Difficulty
-import sae.app.sport.model.Exercise
+import sae.app.sport.model.PoseExercise
 import sae.app.sport.model.ExerciseStep
 import sae.app.sport.model.RecordedPose
 import sae.app.sport.model.StepType
 import sae.app.sport.pose.PoseMath
 import java.util.UUID
 
-class EditorState(private val base: Exercise, fromBuiltIn: Boolean) {
+class EditorState(private val base: PoseExercise, fromBuiltIn: Boolean) {
     var name by mutableStateOf(if (fromBuiltIn) "${base.name} (perso)" else base.name)
     var description by mutableStateOf(base.description)
     var emoji by mutableStateOf(base.emoji)
@@ -157,7 +157,7 @@ class EditorState(private val base: Exercise, fromBuiltIn: Boolean) {
         update(s.id) { it.copy(pose = original) }
     }
 
-    fun toExercise(): Exercise = Exercise(
+    fun toExercise(): PoseExercise = PoseExercise(
         id = exerciseId,
         name = name.trim().ifBlank { "Mon exercice" },
         description = description.trim(),

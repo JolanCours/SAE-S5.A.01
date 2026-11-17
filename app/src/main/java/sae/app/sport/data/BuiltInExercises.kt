@@ -1,7 +1,7 @@
 package sae.app.sport.data
 
 import sae.app.sport.model.Difficulty
-import sae.app.sport.model.Exercise
+import sae.app.sport.model.PoseExercise
 import sae.app.sport.model.ExerciseStep
 import sae.app.sport.model.LandmarkPoint
 import sae.app.sport.model.RecordedPose
@@ -207,9 +207,9 @@ object BuiltInExercises {
     private fun pause(id: String, sec: Float) =
         ExerciseStep(id = id, type = StepType.PAUSE, durationSec = sec, name = "Pause")
 
-    val all: List<Exercise> by lazy {
+    val all: List<PoseExercise> by lazy {
         listOf(
-            Exercise(
+            PoseExercise(
                 id = "builtin_squats",
                 name = "Squats",
                 description = "Descends en squat puis remonte, le plus vite possible.",
@@ -223,7 +223,7 @@ object BuiltInExercises {
                     step("sq_2", "Squat", SQUAT, StepType.INSTANT)
                 )
             ),
-            Exercise(
+            PoseExercise(
                 id = "builtin_jacks",
                 name = "Jumping jacks",
                 description = "Saute en ouvrant bras et jambes en étoile.",
@@ -237,7 +237,7 @@ object BuiltInExercises {
                     step("jj_2", "Étoile", STAR, StepType.INSTANT)
                 )
             ),
-            Exercise(
+            PoseExercise(
                 id = "builtin_knees",
                 name = "Montées de genoux",
                 description = "Mains sur les hanches, monte un genou puis l'autre.",
@@ -251,7 +251,7 @@ object BuiltInExercises {
                     step("kn_2", "Genou droit", KNEE_LEFT_UP.mirror(), StepType.INSTANT)
                 )
             ),
-            Exercise(
+            PoseExercise(
                 id = "builtin_wakeup",
                 name = "Réveil musculaire",
                 description = "Bras en croix, bras levés, squats et chaise.",
@@ -268,7 +268,7 @@ object BuiltInExercises {
                     pause("wu_5", 10f)
                 )
             ),
-            Exercise(
+            PoseExercise(
                 id = "builtin_yoga",
                 name = "Yoga express",
                 description = "Arbre et guerrier, des deux côtés. Respire !",

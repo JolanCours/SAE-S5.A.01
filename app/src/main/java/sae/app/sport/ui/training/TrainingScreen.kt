@@ -63,7 +63,7 @@ import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
-import sae.app.sport.model.Exercise
+import sae.app.sport.model.PoseExercise
 import sae.app.sport.model.RecordedPose
 import sae.app.sport.model.StepType
 import sae.app.sport.pose.PoseMath
@@ -102,7 +102,7 @@ import kotlin.math.sqrt
 
 @Composable
 fun TrainingSessionScreen(
-    exercise: Exercise,
+    exercise: PoseExercise,
     onQuit: () -> Unit,
     onFinished: (WorkoutEngine.Report) -> Unit
 ) {
@@ -113,7 +113,7 @@ fun TrainingSessionScreen(
 
 @Composable
 private fun SessionContent(
-    exercise: Exercise,
+    exercise: PoseExercise,
     onQuit: () -> Unit,
     onFinished: (WorkoutEngine.Report) -> Unit
 ) {

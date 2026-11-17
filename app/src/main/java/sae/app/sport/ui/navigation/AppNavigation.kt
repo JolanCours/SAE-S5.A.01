@@ -16,7 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import sae.app.sport.data.MovementRepository
-import sae.app.sport.model.Exercise
+import sae.app.sport.model.PoseExercise
 import sae.app.sport.training.WorkoutEngine
 import sae.app.sport.ui.creation.EditorScreen
 import sae.app.sport.ui.home.ExerciseDetailScreen
@@ -41,7 +41,7 @@ fun AppNavigation() {
     var forward by remember { mutableStateOf(true) }
 
     val exercises = remember(dataVersion) { repository.getAllExercises() }
-    fun find(id: String): Exercise? = exercises.firstOrNull { it.id == id }
+    fun find(id: String): PoseExercise? = exercises.firstOrNull { it.id == id }
 
     fun push(r: Route) { forward = true; stack.add(r) }
     fun pop() { forward = false; if (stack.size > 1) stack.removeAt(stack.lastIndex) }
@@ -116,7 +116,7 @@ fun AppNavigation() {
 
             is Route.Editor -> {
                 val existing = route.exerciseId?.let { find(it) }
-                val initial = remember(route) { existing ?: Exercise(name = "", steps = emptyList(), colorIndex = exercises.size) }
+                val initial = remember(route) { existing ?: PoseExercise(name = "", steps = emptyList(), colorIndex = exercises.size) }
                 EditorScreen(
                     initial = initial,
                     fromBuiltIn = existing?.builtIn == true,

@@ -36,7 +36,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import sae.app.sport.model.Exercise
+import sae.app.sport.model.PoseExercise
 import sae.app.sport.model.ExerciseStep
 import sae.app.sport.model.StepType
 import sae.app.sport.model.formatDuration
@@ -58,7 +58,7 @@ import sae.app.sport.ui.theme.cardColors
 
 @Composable
 fun ExerciseDetailScreen(
-    exercise: Exercise,
+    exercise: PoseExercise,
     onBack: () -> Unit,
     onStart: () -> Unit,
     onEdit: () -> Unit,
@@ -148,7 +148,7 @@ fun ExerciseDetailScreen(
 }
 
 @Composable
-private fun Header(exercise: Exercise, onBack: () -> Unit) {
+private fun Header(exercise: PoseExercise, onBack: () -> Unit) {
     val (face, shadow) = cardColors(exercise.colorIndex)
     Box(
         Modifier
@@ -216,7 +216,7 @@ private fun HeaderChip(text: String) {
 }
 
 @Composable
-private fun ColumnScope.Actions(exercise: Exercise, onStart: () -> Unit, onEdit: () -> Unit, onDelete: () -> Unit) {
+private fun ColumnScope.Actions(exercise: PoseExercise, onStart: () -> Unit, onEdit: () -> Unit, onDelete: () -> Unit) {
     DuoButton(
         "Commencer",
         onClick = onStart,
@@ -241,7 +241,7 @@ private fun ColumnScope.Actions(exercise: Exercise, onStart: () -> Unit, onEdit:
 }
 
 @Composable
-private fun StepsList(exercise: Exercise) {
+private fun StepsList(exercise: PoseExercise) {
     val c = AppTheme.colors
     SectionHeader("Enchaînement · ${exercise.steps.size} étape${if (exercise.steps.size > 1) "s" else ""}")
     Spacer(Modifier.height(12.dp))
