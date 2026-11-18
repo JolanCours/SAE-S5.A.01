@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "sae.app.sport"
-    compileSdk {
-        version = release(37)
-    }
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "sae.app.sport"
+        minSdk = 24
+        targetSdk = 34
         minSdk = 26
         targetSdk = 37
         versionCode = 1
@@ -21,9 +21,11 @@ android {
 
     buildTypes {
         release {
-            optimization {
-                enable = false
-            }
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {

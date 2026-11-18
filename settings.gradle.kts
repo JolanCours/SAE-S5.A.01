@@ -22,6 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "SAESport"
+rootProject.name = "SAE-S5.01"
 include(":app")
  
