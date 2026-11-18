@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class MainActivity : AppCompatActivity() {
+class AccueilActivity : AppCompatActivity() {
 
     // Définir un TAG pour retrouver facilement tes logs dans Logcat
     companion object {
@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_accueil)
 
         Log.d(TAG, "onCreate: MainActivity lancée avec succès") // Log de debug
 

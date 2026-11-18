@@ -38,14 +38,14 @@ public class recap_sceance extends AppCompatActivity {
         Button btn = findViewById(R.id.button);
         btn.setOnClickListener(v -> {
             Log.i(TAG, "Clic sur le bouton 'Retour à l'accueil'");
-            Intent intent = new Intent(recap_sceance.this, MainActivity.class);
+            Intent intent = new Intent(recap_sceance.this, AccueilActivity.class);
             startActivity(intent);
         });
 
         Button new_seance = findViewById(R.id.button2);
         new_seance.setOnClickListener(v -> {
             Log.i(TAG, "Clic sur le bouton 'Refaire la séance'");
-            Intent intent = new Intent(recap_sceance.this, MainActivity.class);
+            Intent intent = new Intent(recap_sceance.this, AccueilActivity.class);
             startActivity(intent);
         });
 

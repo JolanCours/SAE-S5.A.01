@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SAESport">
         <activity
-            android:name=".MainActivity"
+            android:name=".AccueilActivity"
             android:exported="true"
             android:theme="@style/Theme.SAESport"
             android:windowSoftInputMode="adjustResize">
