@@ -2,6 +2,5 @@
 <resources>
 
     <style name="Theme.Sport" parent="android:Theme.Material.Light.NoActionBar" />
-</resources>
     <style name="Theme.SAESport" parent="Theme.AppCompat.Light.NoActionBar" />
 </resources>

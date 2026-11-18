@@ -14,9 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SAESport">
 
-        <!-- Écran de démarrage : planning + paramètres -->
+        <!-- Écran de connexion/inscription (Launch Activity) -->
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.sport.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.SAESport">
@@ -26,6 +26,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Écran principal : planning + paramètres -->
+        <activity
+            android:name="sae.app.sport.MainActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.SAESport" />
 
         <!-- Écran des badges : ouvert depuis l'app, plus au démarrage -->
         <activity

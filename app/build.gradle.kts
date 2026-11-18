@@ -5,14 +5,13 @@ plugins {
 
 android {
     namespace = "sae.app.sport"
-    compileSdk = 34
+    compileSdk = 36
+    // Passe à 35 (ou 37)
 
     defaultConfig {
         applicationId = "sae.app.sport"
-        minSdk = 24
-        targetSdk = 34
         minSdk = 26
-        targetSdk = 37
+        targetSdk = 35 // Doit correspondre au compileSdk
         versionCode = 1
         versionName = "1.0"
 
@@ -67,4 +66,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 }
