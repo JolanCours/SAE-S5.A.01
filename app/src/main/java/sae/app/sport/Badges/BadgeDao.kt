@@ -1,4 +1,4 @@
-package sae.app.sport
+package sae.app.sport.Badges
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

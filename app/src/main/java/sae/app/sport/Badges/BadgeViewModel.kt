@@ -1,9 +1,10 @@
-package sae.app.sport
+package sae.app.sport.Badges
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import sae.app.sport.R
 
 /**
  * ViewModel pour les badges en Kotlin.

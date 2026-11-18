@@ -1,4 +1,4 @@
-package sae.app.sport
+package sae.app.sport.Badges
 
 import android.content.Context
 import androidx.room.Database

@@ -1,4 +1,4 @@
-package sae.app.sport
+package sae.app.sport.Badges
 
 import android.graphics.Color
 import android.graphics.ColorMatrix
@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import sae.app.sport.R
 
 /**
  * Adaptateur pour le RecyclerView (Kotlin).

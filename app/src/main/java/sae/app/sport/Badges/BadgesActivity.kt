@@ -1,10 +1,11 @@
-package sae.app.sport
+package sae.app.sport.Badges
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import sae.app.sport.R
 
 /**
  * Activité principale gérant l'écran d'affichage des badges (Kotlin).
